@@ -1,10 +1,10 @@
 # Custom Actions
 
-<sup>**Last edit:** 8/21/2019</sup>
+<sup>**Last edit:** 8/23/2019</sup>
 
 # :warning: WIP DOCS
 
-> Availability: We're building functions with the same proven expertise and rock-solid foundations you expect from Braintree. Take a look at our documentation preview to get a jump start on what you'll make with functions.
+> Availability: We're building Custom Actions with the same proven expertise and rock-solid foundations you expect from Braintree.
 >
 > Email functions-requests@braintreepayments.com to learn more.
 
