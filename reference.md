@@ -18,11 +18,45 @@ _Coming soon_
 
 ## Configuration
 
-_Coming soon_
+Custom Actions projects are configured via a `braintree.yml` file. This file contains basic information about the structure of your project and allows you to set values such as environment variables.
+
+```yml
+# Add your project name here
+name: custom-actions-payment-method
+
+kind: paymentMethod
+
+# Configure environment variables which will be provided at runtime
+environment:
+  sandbox:
+    PUBLIC_KEY: "sandbox_key"
+  production:
+    PUBLIC_KEY: "prod_key"
+
+functions:
+  authorizeTransaction:
+    handler: dist/index.AuthorizeTransactionHandler
+  captureTransaction:
+    handler: dist/index.CaptureTransactionHandler
+  refundTransaction:
+    handler: dist/index.RefundTransactionHandler
+  voidTransaction:
+    handler: dist/index.VoidTransactionHandler
+```
 
 ### Environment variables
 
-_Coming soon_
+Environment variables can be set in the `braintree.yml` file as follows (you can see an [example here](https://github.com/braintree/custom-actions-payment-method/blob/546aa30843967129f20369faa5b1088b63550921/braintree.yml#L6-L8)):
+
+```yml
+environment:
+  sandbox:
+    PUBLIC_KEY: "sandbox_key"
+  production:
+    PUBLIC_KEY: "prod_key"
+```
+
+> Currently, variables must be configured explicitly for `sandbox` and `production`.
 
 ### Secrets and keys
 
