@@ -26,6 +26,7 @@ Custom Actions is a serverless platform that opens the Braintree ecosystem to yo
     - [Requirements](#requirements)
     - [Create a new project](#create-a-new-project)
   - [Guides](#guides)
+  - [Reference](./reference.md)
     </details>
 
 ## What is it?
