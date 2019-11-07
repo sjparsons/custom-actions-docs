@@ -80,7 +80,7 @@ _Coming soon…_
 
 ### Create a new project
 
-Clone the [Payment Method](https://github.com/braintree/custom-actions-payment-method) stater repo and follow the README for setup instructions. In this repo, you will find **Event Handlers** for various payment method hooks as well as a configuration file describing your integration.
+Clone the [Payment Method](https://github.com/braintree/custom-actions-payment-method) starter repo and follow the README for setup instructions. In this repo, you will find **Event Handlers** for various payment method hooks as well as a configuration file describing your integration.
 
 Make sure to change the `name` to reflect your new Custom Action.
 

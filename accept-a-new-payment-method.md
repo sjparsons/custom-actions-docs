@@ -28,7 +28,7 @@ In addition to a [Braintree sandbox](https://www.braintreepayments.com/sandbox) 
 
 > :warning: **Custom Actions** is currently in preview. Reach out to functions-requests@braintreepayments.com to request access
 
-Clone the [Payment Method](https://github.com/braintree/custom-actions-payment-method) stater repo and follow the README for setup instructions.
+Clone the [Payment Method](https://github.com/braintree/custom-actions-payment-method) starter repo and follow the README for setup instructions.
 
 ## Event Handlers
 
