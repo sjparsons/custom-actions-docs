@@ -1,4 +1,4 @@
-# <img src="https://media.github.braintreeps.com/user/143/files/55e80d80-41a2-11ea-86e5-b1234aca0b4d" alt="drawing" width="42" /> Custom Actions
+# <img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions
 
 <sup>**Last edit:** 01/31/2020</sup>
 
@@ -11,7 +11,7 @@ Custom Actions is a serverless platform that opens the Braintree ecosystem to yo
 <details>
 <summary><strong>Contents</strong></summary>
 
-- [<img src="https://media.github.braintreeps.com/user/143/files/55e80d80-41a2-11ea-86e5-b1234aca0b4d" alt="drawing" width="42" /> Custom Actions](#img-src%22httpsmediagithubbraintreepscomuser143files55e80d80-41a2-11ea-86e5-b1234aca0b4d%22-alt%22drawing%22-width%2242%22--custom-actions)
+- [<img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions](#img-src%22httpsuser-imagesgithubusercontentcom121711673565740-d2d7e900-4427-11ea-8d5b-b5692c425de0png%22-alt%22drawing%22-width%2242%22--custom-actions)
   - [What is it?](#what-is-it)
   - [Benefits](#benefits)
     - [Single integration](#single-integration)
@@ -62,6 +62,7 @@ _Coming soon_
 ### Requirements
 
 - A Braintree sandbox account – ([signup here](https://www.braintreepayments.com/sandbox))
+- Access to Custom Actions – (email functions-requests@braintreepayments.com for access)
 - Node.js v10.16 or later ([download](https://nodejs.org/en/download/))
   - [nvm](https://github.com/nvm-sh/nvm) is recommended to manage Node.js versions.
 - Familiarity with [git](https://git-scm.com/) and command-line tools
