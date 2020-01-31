@@ -45,6 +45,8 @@ Custom Actions are deployed globally. This means you can tailor your commerce to
 
 ## Use cases
 
+![ca-diagram](https://user-images.githubusercontent.com/1217116/73570150-695cd800-4431-11ea-8bc0-6b3ad83c9d79.png)
+
 ### Payment methods
 
 With Custom Actions, you can accept a payment method Braintree doesn’t support or initiate complex workflows with third-parties such as Twilio to take payment information over the phone.
