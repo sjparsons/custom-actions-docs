@@ -39,6 +39,7 @@ By default, a project provides **hooks** for the [authorize](#authorization), [c
 To build a new payment method integration, you will need:
 
 - A [Braintree sandbox](https://www.braintreepayments.com/sandbox) account
+- Access to Custom Actions – (email functions-requests@braintreepayments.com for access)
 - Node.js v10.16 or later ([download](https://nodejs.org/en/download/))
   - [nvm](https://github.com/nvm-sh/nvm) is recommended to manage Node.js versions.
 - The [Braintree CLI](../cli/index.md)
