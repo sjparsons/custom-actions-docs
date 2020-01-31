@@ -1,4 +1,4 @@
-[&lt; Home](../index.md)
+[&lt; Home](../README.md)
 
 # Accept a new payment method
 
