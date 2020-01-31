@@ -1,8 +1,6 @@
-# Custom Actions
+# <img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions
 
-<sup>**Last edit:** 11/7/2019</sup>
-
-# :warning: WIP DOCS
+<sup>**Last edit:** 01/31/2020</sup>
 
 > Availability: We're building Custom Actions with the same proven expertise and rock-solid foundations you expect from Braintree.
 >
@@ -13,7 +11,7 @@ Custom Actions is a serverless platform that opens the Braintree ecosystem to yo
 <details>
 <summary><strong>Contents</strong></summary>
 
-- [Custom Actions](#custom-actions)
+- [<img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions](#img-src%22httpsuser-imagesgithubusercontentcom121711673565740-d2d7e900-4427-11ea-8d5b-b5692c425de0png%22-alt%22drawing%22-width%2242%22--custom-actions)
   - [What is it?](#what-is-it)
   - [Benefits](#benefits)
     - [Single integration](#single-integration)
@@ -21,12 +19,10 @@ Custom Actions is a serverless platform that opens the Braintree ecosystem to yo
   - [Use cases](#use-cases)
     - [Payment methods](#payment-methods)
     - [Fraud tools](#fraud-tools)
-    - [Data export](#data-export)
+    - [Data import & export](#data-import--export)
   - [Getting Started](#getting-started)
     - [Requirements](#requirements)
-    - [Create a new project](#create-a-new-project)
   - [Guides](#guides)
-  - [Reference](./reference.md)
     </details>
 
 ## What is it?
@@ -49,62 +45,30 @@ Custom Actions are deployed globally. This means you can tailor your commerce to
 
 ## Use cases
 
+![ca-diagram](https://user-images.githubusercontent.com/1217116/73570150-695cd800-4431-11ea-8bc0-6b3ad83c9d79.png)
+
 ### Payment methods
 
 With Custom Actions, you can accept a payment method Braintree doesn’t support or initiate complex workflows with third-parties such as Twilio to take payment information over the phone.
-
-[IMAGE]
 
 ### Fraud tools
 
 You can use Custom Actions to run transactions through a fraud service.
 
-[IMAGE]
+### Data import & export
 
-### Data export
-
-_Coming soon…_
+_Coming soon_
 
 ## Getting Started
-
-- [Getting Started](#getting-started)
-  - [Requirements](#requirements)
-  - [Create a new project](#create-a-new-project)
 
 ### Requirements
 
 - A Braintree sandbox account – ([signup here](https://www.braintreepayments.com/sandbox))
-- Node.js v10.15 or later ([download](https://nodejs.org/en/download/))
+- Access to Custom Actions – (email functions-requests@braintreepayments.com for access)
+- Node.js v10.16 or later ([download](https://nodejs.org/en/download/))
   - [nvm](https://github.com/nvm-sh/nvm) is recommended to manage Node.js versions.
 - Familiarity with [git](https://git-scm.com/) and command-line tools
 
-### Create a new project
-
-Clone the [Payment Method](https://github.com/braintree/custom-actions-payment-method) starter repo and follow the README for setup instructions. In this repo, you will find **Event Handlers** for various payment method hooks as well as a configuration file describing your integration.
-
-Make sure to change the `name` to reflect your new Custom Action.
-
-<sub style="margin-bottom: -10px; display: block;"><strong>braintree.yml</strong></sub>
-
-```yml
-# Add your project name here
-name: custom-actions-payment-method
-
-kind: paymentMethod
-
-functions:
-  authorizeTransaction:
-    handler: dist/index.AuthorizeTransactionHandler
-  captureTransaction:
-    handler: dist/index.CaptureTransactionHandler
-  refundTransaction:
-    handler: dist/index.RefundTransactionHandler
-  voidTransaction:
-    handler: dist/index.VoidTransactionHandler
-```
-
-This project provides TypeScript definitions and unit tests out of the box. After installing dependencies, you can run `npm run test:watch` to spin up the tests in watch mode and begin wiring up your custom integration.
-
 ## Guides
 
-- [Accept a new payment method](./accept-a-new-payment-method.md)
+- [Accept a new payment method](./guides/accept-a-new-payment-method.md)
