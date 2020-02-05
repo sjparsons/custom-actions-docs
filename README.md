@@ -1,6 +1,6 @@
 # <img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions
 
-<sup>**Last edit:** 01/31/2020</sup>
+<sup>**Last edit:** 02/05/2020</sup>
 
 > Availability: We're building Custom Actions with the same proven expertise and rock-solid foundations you expect from Braintree.
 >

@@ -169,7 +169,7 @@ mutation ExampleAuth($input: AuthorizePaymentMethodInput!) {
 ```json
 {
   "data": {
-    "chargePaymentMethod": {
+    "authorizePaymentMethod": {
       "transaction": {
         "id": "id_of_authorized_transaction",
         "status": "AUTHORIZED"
@@ -237,9 +237,11 @@ mutation ExampleCapture($input: CaptureTransactionInput!) {
 ```json
 {
   "data": {
-    "transaction": {
-      "id": "id_of_transaction",
-      "status": "SUBMITTED_FOR_SETTLEMENT"
+    "captureTransaction": {
+      "transaction": {
+        "id": "id_of_transaction",
+        "status": "SUBMITTED_FOR_SETTLEMENT"
+      }
     }
   }
 }
