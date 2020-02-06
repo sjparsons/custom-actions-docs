@@ -6,7 +6,7 @@ This guide will walk through the steps of creating a Custom Actions payment meth
 
 By default, a project provides **hooks** for the [authorize](#authorization), [capture](#capture), [void](#void), and [refund](#refund) phases of a transaction. You can learn more about the lifecycle of a Transaction [here](https://developers.braintreepayments.com/guides/transactions/node).
 
-> **Note:** Custom Actions provides pre-defined project templates. Not every integration will fall neatly within a single template, but for those, you can create a custom integration or reach out to functions-requests@braintreepayments.com
+> **Note:** Custom Actions provides pre-defined project templates. Not every integration will fall neatly within a single template, but for those, you can create a custom integration or reach out to custom-actions-requests@braintreepayments.com
 
 <details>
 <summary><strong>Contents</strong></summary>
@@ -39,7 +39,7 @@ By default, a project provides **hooks** for the [authorize](#authorization), [c
 To build a new payment method integration, you will need:
 
 - A [Braintree sandbox](https://www.braintreepayments.com/sandbox) account
-- Access to Custom Actions – (email functions-requests@braintreepayments.com for access)
+- Access to Custom Actions – (email custom-actions-requests@braintreepayments.com for access)
 - Node.js v10.16 or later ([download](https://nodejs.org/en/download/))
   - [nvm](https://github.com/nvm-sh/nvm) is recommended to manage Node.js versions.
 - The [Braintree CLI](../cli/index.md)

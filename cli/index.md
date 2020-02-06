@@ -30,7 +30,7 @@ The Braintree CLI allows developers to interact with Braintree services directly
 
 > :warning: You will need access to the CLI Github repo to use Custom Actions
 >
-> Email functions-requests@braintreepayments.com to learn more.
+> Email custom-actions-requests@braintreepayments.com to learn more.
 
 ```sh
 $ npm i -g git+ssh://git@github.braintreeps.com:braintree/cli

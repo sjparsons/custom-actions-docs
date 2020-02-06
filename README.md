@@ -1,10 +1,10 @@
 # <img src="https://user-images.githubusercontent.com/1217116/73565740-d2d7e900-4427-11ea-8d5b-b5692c425de0.png" alt="drawing" width="42" /> Custom Actions
 
-<sup>**Last edit:** 01/31/2020</sup>
+<sup>**Last edit:** 02/06/2020</sup>
 
 > Availability: We're building Custom Actions with the same proven expertise and rock-solid foundations you expect from Braintree.
 >
-> Email functions-requests@braintreepayments.com to learn more.
+> Email custom-actions-requests@braintreepayments.com to learn more.
 
 Custom Actions is a serverless platform that opens the Braintree ecosystem to you and your developers by providing the capability to extend our built-in offerings. With Custom Actions, you can add new payment methods we don't currently support, send transaction data to your accounting systems, run fraud tools from the vendor of your choice, or develop a custom workflow unique to your business.
 
@@ -64,7 +64,7 @@ _Coming soon_
 ### Requirements
 
 - A Braintree sandbox account – ([signup here](https://www.braintreepayments.com/sandbox))
-- Access to Custom Actions – (email functions-requests@braintreepayments.com for access)
+- Access to Custom Actions – (email custom-actions-requests@braintreepayments.com for access)
 - Node.js v10.16 or later ([download](https://nodejs.org/en/download/))
   - [nvm](https://github.com/nvm-sh/nvm) is recommended to manage Node.js versions.
 - Familiarity with [git](https://git-scm.com/) and command-line tools
