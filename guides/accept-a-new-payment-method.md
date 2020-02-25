@@ -46,6 +46,16 @@ To build a new payment method integration, you will need:
 
 It would also be helpful to familiarize yourself with our [GraphQL API](https://graphql.braintreepayments.com).
 
+## Request Custom Actions access
+
+Custom Actions needs to be enabled for each merchant account. Send an email to custom-actions-requests@braintreepayments.com for access. Here is a handy template that you can use:
+
+> Hello Custom Actions Team!
+> 
+> I would like to enable Custom Actions for my merchant.
+> 
+> My sandbox merchant ID is: YOUR_SANDBOX_MERCHANT_ID
+
 ## Create a project
 
 Ensure you have installed the [CLI](../cli/index.md) and run `btx actions:create`.
