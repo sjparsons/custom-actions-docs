@@ -4,7 +4,9 @@
 
 This guide will walk through the steps of creating a Custom Actions payment method, wiring up a client, and deploying your project for use in your sandbox account.
 
-By default, a project provides **hooks** for the [authorize](#authorization), [capture](#capture), [void](#void), and [refund](#refund) phases of a transaction. You can learn more about the lifecycle of a Transaction [here](https://developers.braintreepayments.com/guides/transactions/node).
+By default, a project provides **hooks** for the [authorize](#authorization), [capture](#capture), [void](#void), and [refund](#refund) phases of a transaction as well as a **hook** for creating a [Payment Context](./create-a-payment-context.md).
+
+You can learn more about the lifecycle of a Transaction [here](https://developers.braintreepayments.com/guides/transactions/node).
 
 > **Note:** Custom Actions provides pre-defined project templates. Not every integration will fall neatly within a single template, but for those, you can create a custom integration or reach out to custom-actions-requests@braintreepayments.com
 
@@ -13,6 +15,7 @@ By default, a project provides **hooks** for the [authorize](#authorization), [c
 
 - [Accept a new payment method](#accept-a-new-payment-method)
   - [Requirements](#requirements)
+  - [Request Custom Actions access](#request-custom-actions-access)
   - [Create a project](#create-a-project)
     - [Setting up your development environment](#setting-up-your-development-environment)
       - [Install dependencies](#install-dependencies)
@@ -26,6 +29,7 @@ By default, a project provides **hooks** for the [authorize](#authorization), [c
     - [Reversal handlers](#reversal-handlers)
       - [Void Handler](#void-handler)
       - [Refund Handler](#refund-handler)
+      - [Create Payment Context Handler](#create-payment-context-handler)
   - [Build your client-side integration](#build-your-client-side-integration)
     - [Tokenization](#tokenization)
   - [Deploy your custom action](#deploy-your-custom-action)
@@ -51,9 +55,9 @@ It would also be helpful to familiarize yourself with our [GraphQL API](https://
 Custom Actions needs to be enabled for each merchant account. Send an email to custom-actions-requests@braintreepayments.com for access. Here is a handy template that you can use:
 
 > Hello Custom Actions Team!
-> 
+>
 > I would like to enable Custom Actions for my merchant.
-> 
+>
 > My sandbox merchant ID is: YOUR_SANDBOX_MERCHANT_ID
 
 ## Create a project
@@ -369,6 +373,48 @@ export const RefundTransactionHandler = async (
       id: transaction.id,
       settlementTimestamp: new Date(),
       status: BraintreeTransactionStatus.SUBMITTED_FOR_SETTLEMENT
+    }
+  };
+};
+```
+
+#### Create Payment Context Handler
+
+There are cases where you may need to track buyer activity or capture data _before_ creating a transaction. In these cases, you can use a **Payment Context**. With a **Payment Context**, you can send data to a Custom Actions handler, make a call to an API, and then store the result within Braintree for use on your client or server.
+
+```typescript
+export const CreatePaymentContextHandler = async (
+  paymentContext: BraintreePaymentContext
+): Promise<BraintreeEventHandlerResponse> => {
+  // Call out to third-party here
+
+  return {
+    paymentContextOrError: {
+      // Return fields to be stored on the Payment Context
+      customFields: [
+        {
+          name: "orderId",
+          value: myAPI.createOrder().id
+        }
+      ]
+    }
+  };
+};
+```
+
+**Error handling**
+
+You may encounter a scenario, such as a validation error, where you need to return a message to a client. In that case, you can return a structured `Error` type from your handler:
+
+```typescript
+export const CreatePaymentContextHandler = async (
+  paymentContext: BraintreePaymentContext
+): Promise<BraintreeEventHandlerResponse> => {
+  // Call out to third-party here
+
+  return {
+    paymentContextOrError: {
+      message: "A valid address must be provided"
     }
   };
 };
