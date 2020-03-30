@@ -90,6 +90,8 @@ foopay/src
     ├── AuthorizeTransaction.ts
     ├── CaptureTransaction.test.ts
     ├── CaptureTransaction.ts
+    ├── CreatePaymentContext.test.ts
+    ├── CreatePaymentContext.ts
     ├── RefundTransaction.test.ts
     ├── RefundTransaction.ts
     ├── VoidTransaction.test.ts
