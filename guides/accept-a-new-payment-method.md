@@ -92,6 +92,8 @@ foopay/src
     ├── CaptureTransaction.ts
     ├── CreatePaymentContext.test.ts
     ├── CreatePaymentContext.ts
+    ├── ResolvePaymentContext.test.ts
+    ├── ResolvePaymentContext.ts
     ├── RefundTransaction.test.ts
     ├── RefundTransaction.ts
     ├── VoidTransaction.test.ts
@@ -145,8 +147,8 @@ export const AuthorizeTransactionHandler = async (
   return {
     transactionStatusEvent: {
       id: transaction.id,
-      status: BraintreeTransactionStatus.AUTHORIZED
-    }
+      status: BraintreeTransactionStatus.AUTHORIZED,
+    },
   };
 };
 ```
@@ -218,8 +220,8 @@ export const CaptureTransactionHandler = async (
     transactionStatusEvent: {
       id: transaction.id,
       settlementTimestamp: new Date().toISOString(),
-      status: BraintreeTransactionStatus.SUBMITTED_FOR_SETTLEMENT
-    }
+      status: BraintreeTransactionStatus.SUBMITTED_FOR_SETTLEMENT,
+    },
   };
 };
 ```
@@ -355,8 +357,8 @@ export const VoidTransactionHandler = async (
   return {
     transactionStatusEvent: {
       id: transaction.id,
-      status: BraintreeTransactionStatus.VOIDED
-    }
+      status: BraintreeTransactionStatus.VOIDED,
+    },
   };
 };
 ```
@@ -375,8 +377,8 @@ export const RefundTransactionHandler = async (
     transactionStatusEvent: {
       id: transaction.id,
       settlementTimestamp: new Date(),
-      status: BraintreeTransactionStatus.SUBMITTED_FOR_SETTLEMENT
-    }
+      status: BraintreeTransactionStatus.SUBMITTED_FOR_SETTLEMENT,
+    },
   };
 };
 ```
@@ -387,7 +389,7 @@ There are cases where you may need to track buyer activity or capture data _befo
 
 ```typescript
 export const CreatePaymentContextHandler = async (
-  paymentContext: BraintreePaymentContext
+  paymentContext: CreateBraintreePaymentContextInput
 ): Promise<BraintreeEventHandlerResponse> => {
   // Call out to third-party here
 
@@ -397,10 +399,10 @@ export const CreatePaymentContextHandler = async (
       customFields: [
         {
           name: "orderId",
-          value: myAPI.createOrder().id
-        }
-      ]
-    }
+          value: myAPI.createOrder().id,
+        },
+      ],
+    },
   };
 };
 ```
@@ -411,14 +413,35 @@ You may encounter a scenario, such as a validation error, where you need to retu
 
 ```typescript
 export const CreatePaymentContextHandler = async (
-  paymentContext: BraintreePaymentContext
+  paymentContext: CreateBraintreePaymentContextInput
 ): Promise<BraintreeEventHandlerResponse> => {
   // Call out to third-party here
 
   return {
     paymentContextOrError: {
-      message: "A valid address must be provided"
-    }
+      message: "A valid address must be provided",
+    },
+  };
+};
+```
+
+### Resolve Payment Context Handler
+
+You can look up a Payment Context by passing its id to a [node query](https://graphql.braintreepayments.com/guides/node_query/). In these cases, a Custom Actions handler called `ResolvePaymentContext` will be called. In this handler, you may return the Payment Context itself, or if you need to negotiate state with a downstream service, you can make a call and then return the new fields.
+
+```typescript
+export const ResolvePaymentContextHandler = async (
+  paymentContext: BraintreePaymentContextInput
+): Promise<BraintreeEventHandlerResponse> => {
+  // Call out to third-party here
+
+  // tslint:disable-next-line:no-console
+  console.log(paymentContext);
+
+  return {
+    paymentContextOrError: {
+      customFields: [...(paymentContext.customFields || [])],
+    },
   };
 };
 ```
