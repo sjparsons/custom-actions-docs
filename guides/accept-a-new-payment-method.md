@@ -31,6 +31,7 @@ You can learn more about the lifecycle of a Transaction [here](https://developer
       - [Refund Handler](#refund-handler)
     - [Create Payment Context Handler](#create-payment-context-handler)
       - [Error handling](#error-handling)
+    - [Resolve Payment Context Handler](#resolve-payment-context-handler)
   - [Build your client-side integration](#build-your-client-side-integration)
     - [Tokenization](#tokenization)
   - [Deploy your custom action](#deploy-your-custom-action)
