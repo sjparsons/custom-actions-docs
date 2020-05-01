@@ -17,6 +17,7 @@ A payment context is an object that can be created to store data about a payment
   - [Accessing the payment context](#accessing-the-payment-context)
     - [Mutation](#mutation-1)
     - [Variables](#variables-1)
+    </details>
 
 ## Requirements
 
