@@ -135,7 +135,7 @@ See the [CLI reference](https://github.braintreeps.com/braintree/cli) (GHE link)
 
 ### Authorization handler
 
-When you [authorize](https://graphql.braintreepayments.com/guides/creating_transactions#using-separate-authorization-and-capture) a payment method via the [Braintree API](https://graphql.braintreepayments.com) using a [tokenized Custom Actions payment method](#tokenization), your `authorizeTransaction` event handler will be called. This handler will provide you with a [Transaction](BAD_LINK) Object and expect you to return a [TransactionStatusEvent](BAD_LINK) with a new [status](https://github.com/braintree/braintree-types/blob/9197377866c59f5465b115099f69a8c3242b7f16/src/index.ts#L298).
+When you [authorize](https://graphql.braintreepayments.com/guides/creating_transactions#using-separate-authorization-and-capture) a payment method via the [Braintree API](https://graphql.braintreepayments.com) using a [tokenized Custom Actions payment method](#tokenization), your `authorizeTransaction` event handler will be called. This handler will provide you with a Transaction Object and expect you to return a TransactionStatusEvent with a new [status](https://github.com/braintree/braintree-types/blob/9197377866c59f5465b115099f69a8c3242b7f16/src/index.ts#L298).
 
 > **Note:** When using [`chargePaymentMethod`](https://graphql.braintreepayments.com/reference/#Mutation--chargePaymentMethod) via the GraphQL API or passing [`submitForSettlement: true`](https://developers.braintreepayments.com/reference/request/transaction/sale/node#options.submit_for_settlement) on a `transaction.sale()` call via the SDK, your `authorizeTransactionHandler` **_*and*_** your [`captureTransactionHandler`](#capture) will be invoked serially.
 
@@ -205,7 +205,7 @@ At this point, it may be a good idea to verify your integration is working for t
 
 Capturing a transaction represents the [settlement](https://developers.braintreepayments.com/guides/transactions/node#settlement) phase which is required to actually collect payment from a previous [authorization](#authorization).
 
-When calling [`transaction.submitForSettlement()`](https://developers.braintreepayments.com/reference/request/transaction/submit-for-settlement) through the SDK or [`captureTransaction`](https://graphql.braintreepayments.com/reference/#Mutation--captureTransaction) through the GraphQL API (preferred\), your `captureTransaction` event handler will be called. Like the authorize handler, this function will be called with a [Transaction](BAD_LINK) Object and expect you to return a [TransactionStatusEvent](BAD_LINK) with a new [status](https://github.com/braintree/braintree-types/blob/9197377866c59f5465b115099f69a8c3242b7f16/src/index.ts#L304-L308).
+When calling [`transaction.submitForSettlement()`](https://developers.braintreepayments.com/reference/request/transaction/submit-for-settlement) through the SDK or [`captureTransaction`](https://graphql.braintreepayments.com/reference/#Mutation--captureTransaction) through the GraphQL API (preferred\), your `captureTransaction` event handler will be called. Like the authorize handler, this function will be called with a Transaction Object and expect you to return a TransactionStatusEvent with a new [status](https://github.com/braintree/braintree-types/blob/9197377866c59f5465b115099f69a8c3242b7f16/src/index.ts#L304-L308).
 
 > **Note:** When using [`chargePaymentMethod`](https://graphql.braintreepayments.com/reference/#Mutation--chargePaymentMethod) via the GraphQL API or passing [`submitForSettlement: true`](https://developers.braintreepayments.com/reference/request/transaction/sale/node#options.submit_for_settlement) on a `transaction.sale()` call via the SDK, your [`authorizeTransactionHandler`](#authorization) **_*and*_** your `captureTransactionHandler` will be invoked serially.
 
@@ -347,7 +347,7 @@ mutation ExampleReverse($input: ReverseTransactionInput!) {
 
 #### Void Handler
 
-A transaction in the [`AUTHORIZED`](https://developers.braintreepayments.com/reference/general/statuses#authorized) or [`SUBMITTED_FOR_SETTLEMENT`](https://developers.braintreepayments.com/reference/general/statuses#submitted-for-settlement) state can be voided. This will invoke the `voidHandler` function for your Custom Action with a [Transaction](BAD_LINK) Object and expect you to return a [TransactionStatusEvent](BAD_LINK) with a new status of `VOIDED`.
+A transaction in the [`AUTHORIZED`](https://developers.braintreepayments.com/reference/general/statuses#authorized) or [`SUBMITTED_FOR_SETTLEMENT`](https://developers.braintreepayments.com/reference/general/statuses#submitted-for-settlement) state can be voided. This will invoke the `voidHandler` function for your Custom Action with a Transaction Object and expect you to return a TransactionStatusEvent with a new status of `VOIDED`.
 
 ```js
 export const VoidTransactionHandler = async (
@@ -366,7 +366,7 @@ export const VoidTransactionHandler = async (
 
 #### Refund Handler
 
-A transaction in the [`SETTLED`](https://developers.braintreepayments.com/reference/general/statuses#settled) or [`SETTLING`](https://developers.braintreepayments.com/reference/general/statuses#settling) state can be refunded. This will invoke the `refundTransaction` function for your Custom Action with a [Refund](BAD_LINK) Object and expect you to return a [TransactionStatusEvent](BAD_LINK) with a new status of `SUBMITTED_FOR_SETTLEMENT`.
+A transaction in the [`SETTLED`](https://developers.braintreepayments.com/reference/general/statuses#settled) or [`SETTLING`](https://developers.braintreepayments.com/reference/general/statuses#settling) state can be refunded. This will invoke the `refundTransaction` function for your Custom Action with a Refund Object and expect you to return a TransactionStatusEvent with a new status of `SUBMITTED_FOR_SETTLEMENT`.
 
 ```js
 export const RefundTransactionHandler = async (
